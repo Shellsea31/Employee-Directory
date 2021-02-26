@@ -68,10 +68,14 @@ const Input = () => {
     e.preventDefault();
     try {
       const search = await users.filter(
-        (user) => user.name.first === name.name
+        (user) => user.name.first.toLowerCase() === name.name.toLowerCase()
       );
       const employee = await search[0];
-      if (employee.name.first === name.name) {
+
+      const searchEmployee = await employee.name.first.toLowerCase();
+      const findName = await name.name.toLowerCase();
+
+      if (searchEmployee === findName) {
         row.push(employee);
         setUsers(row);
       } else alert("There aren't any employees by that name.");
@@ -122,7 +126,7 @@ const Input = () => {
           name="last"
           className="btn btn-dark mb-3"
         >
-          Last Name 
+          Last Name
         </button>
       </div>
       <Table>
