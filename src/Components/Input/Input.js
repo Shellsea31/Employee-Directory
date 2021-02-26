@@ -122,7 +122,7 @@ const Input = () => {
           name="last"
           className="btn btn-dark mb-3"
         >
-          Country
+          Last Name 
         </button>
       </div>
       <Table>
